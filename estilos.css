@@ -1,0 +1,45 @@
+body{
+    background: url(NYQ1X4.jpg);
+}
+.keys{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap: no-wrap;
+    
+    margin: auto;
+    margin-top: 50vh;
+    width: 70%;
+    
+    
+}
+
+.key{
+    margin: 1rem;
+    border: 5px solid #000;
+    width: 150px;
+    min-width: 120px;
+    height: 100px;
+    color: #fff;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 0 0 5px #000;
+    transition: all 0.07s;
+    padding-top: 1rem;
+
+       
+}
+.playing{
+    transform: scale(1.1);
+    border-color: #af5705;
+    box-shadow: 0 0 10px #af5705;
+}
+
+kbd{
+    display: block;
+    font-size: 30px;
+}
+
+span {
+    color: #af5705;
+    font-size: 20px;
+}

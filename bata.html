@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bateria JS</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css" media="screen" />
+</head>
+<body>
+    <div class="keys">
+        <div data-key="65" class="key">
+            <kbd>A</kbd>
+            <span>RIDE</span>
+        </div>
+        <div data-key="83" class="key">
+            <kbd>S</kbd>
+            <span>CLAN</span>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>D</kbd>
+            <span>DRUM</span>
+        </div>
+        <div data-key="70" class="key">
+            <kbd>F</kbd>
+            <span>HITHAT</span>
+        </div>
+        <div data-key="71" class="key">
+            <kbd>G</kbd>
+            <span>BOOM</span>
+        </div>
+        <div data-key="72" class="key">
+            <kbd>H</kbd>
+            <span>CLASH</span>
+        </div>
+        <div data-key="74" class="key">
+            <kbd>J</kbd>
+            <span>SNARE</span>
+        </div>
+        <div data-key="75" class="key">
+            <kbd>K</kbd>
+            <span>TOM</span>
+        </div>
+        <div data-key="76" class="key">
+            <kbd>L</kbd>
+            <span>BASS</span>
+        </div>
+    </div>
+
+    <audio data-key="65" src="platillo.mp3"></audio>
+    <audio data-key="83" src="clan.mp3"></audio>
+    <audio data-key="68" src="tambor.mp3"></audio>
+    <audio data-key="70" src="hithat.mp3"></audio>
+    <audio data-key="71" src="medio.mp3"></audio>
+    <audio data-key="72" src="Clank.mp3"></audio>
+    <audio data-key="74" src="trok.mp3"></audio>
+    <audio data-key="75" src="truk.mp3"></audio>
+    <audio data-key="76" src="sordo.mp3"></audio>
+
+    <script>
+        
+        const d = document
+        
+        window.addEventListener("keydown", (e)=>{
+            
+            const audio = d.querySelector(`audio[data-key="${e.keyCode}"]`)
+            const key = d.querySelector(`.key[data-key="${e.keyCode}"]`)
+            if (!audio) return;
+            key.classList.add(`playing`);
+            audio.currentTime=0;
+            audio.play();
+            
+        });
+
+        function removeTransition(e){
+            if(e.propertyName !== "transform") return;
+            this.classList.remove("playing")
+        }
+
+        const keys = d.querySelectorAll(".key")
+        keys.forEach(key => {
+            key.addEventListener("transitionend", removeTransition)
+            
+        });
+        
+            
+        
+            
+        
+    </script>
+</body>
+</html>
