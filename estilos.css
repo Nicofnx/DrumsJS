@@ -1,5 +1,6 @@
 body{
     background: url(NYQ1X4.jpg);
+    background-size: cover
 }
 .keys{
     display: flex;
